@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import './assets/css/dist/block-library/style.min77e1.css'
+import './assets/css/dist/block-library/theme.min77e1.css'
+
+import './assets/plugins/loop-block/build/style.minde54.css'
+
+import './assets/themes/play/style.min77e1.css'
+import './assets/themes/waveme/theme77e1.css'
+import './assets/themes/waveme/style77e1.css'
+
+import SideNav from './components/SideNav/SideNav'
+import Navbar from './components/Navbar/Navbar'
+import Home from './pages/Home/Home'
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <div id='content' className='site-content'>
+        <Home />
+      </div>
+      <SideNav />
     </div>
-  );
+  )
 }
-
-export default App;
