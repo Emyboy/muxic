@@ -1,0 +1,1 @@
+export const MUSIC_API_URL = `https://api.deezer.com`;
