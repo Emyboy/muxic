@@ -7,7 +7,7 @@ type Props = {}
 
 export default function LeftNav({ }: Props) {
     return (
-        <div className='text-fg-light min-w-[300px] max-w-[300px] border-r border-gray-800 fixed flex flex-col left-0 bottom-0 h-screen p-3 gap-3 z-50'>
+        <div className='text-fg-light min-w-[300px] max-w-[300px] border-r border-gray-800 fixed flex flex-col left-0 bottom-0 h-screen p-3 gap-3 z-50 overflow-y-auto'>
             <Card>
                 <h1 className='text-lg mb-2'>Discover</h1>
                 <EachNav title={`Charts`} Icon={HiChartPie} />
@@ -22,9 +22,19 @@ export default function LeftNav({ }: Props) {
             </Card>
             <Card>
                 <h1 className='text-lg mb-2'>Favorite Tracks</h1>
-                <EachNavTracks />
-                <EachNavTracks />
-                <EachNavTracks />
+                {
+                    new Array(3).fill(null).map((val,i) => {
+                        return <EachNavTracks key={`track-${i}`} />
+                    })
+                }
+            </Card>
+            <Card>
+                <h1 className='text-lg mb-2'>Favorite Artists</h1>
+                {
+                    new Array(5).fill(null).map((val,i) => {
+                        return <EachNavTracks key={`track-${i}`} />
+                    })
+                }
             </Card>
         </div>
     )
