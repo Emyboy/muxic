@@ -4,7 +4,9 @@ import React from 'react'
 
 export default async function page() {
 
-  const res = await fetch(MUSIC_API_URL + `/chart`);
+  const res = await fetch(MUSIC_API_URL + `/chart`, {
+    cache: 'no-store'
+  });
   const data = await res.json();
 
   return (

@@ -26,7 +26,7 @@ export default function AudioPlayer({ }: Props) {
                     <HiMiniPlayCircle size={40} className='text-white' />
                     <FaStepForward size={20} />
                 </div>
-                <div className='flex w-full items-center gap-5'>
+                <div className='flex  items-center w-[70%] gap-5'>
                     <small>0:06</small>
                     <div className='flex-1 rounded-full min-w-[80%] h-1 bg-fg overflow-hidden'>
                         <div className='bg-fg-light w-[40%] h-1' />
