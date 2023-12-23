@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import AudioPlayer from '@/components/AudioPlayer/AudioPlayer'
+import DefaultLayout from '@/components/layout/DefaultLayout'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en" className='bg-black'>
       <body>
-        {children}
+        <DefaultLayout>
+          {children}
+        </DefaultLayout>
         <AudioPlayer />
       </body>
     </html>

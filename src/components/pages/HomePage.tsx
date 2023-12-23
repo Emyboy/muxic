@@ -8,8 +8,10 @@ type Props = {
 
 export default function HomePage({ chartData }: Props) {
     return (
-        <DefaultLayout>
+        <>
             <div className="h-[400px] bg-fg rounded-lg mb-20 bg-[url(https://img.freepik.com/free-vector/gradient-electronic-music-facebook-cover_23-2149913287.jpg)] bg-no-repeat bg-center bg-cover" />
+            <div className='pb-36'>
+
             {
                 Object.keys(chartData).map((val, i) => {
                     return <div className="flex flex-col gap-10 mb-20" key={`section-${i}`}>
@@ -29,6 +31,7 @@ export default function HomePage({ chartData }: Props) {
                     </div>
                 })
             }
-        </DefaultLayout>
+            </div>
+        </>
     )
 };

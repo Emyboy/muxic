@@ -1,5 +1,4 @@
 import React from 'react'
-import Card from '../Card'
 import { HiMiniPlay } from 'react-icons/hi2'
 import Image from 'next/image'
 
