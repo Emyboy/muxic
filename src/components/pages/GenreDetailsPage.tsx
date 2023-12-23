@@ -17,6 +17,7 @@ export default function GenreDetailsPage({ list }: Props) {
                         title={artist.name}
                         sub_title=''
                         img_url={artist.picture_medium}
+                        route={`/${artist.type}/${artist.id}`}
                     />
                 })
             }
