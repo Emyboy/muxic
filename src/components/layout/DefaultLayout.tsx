@@ -14,7 +14,7 @@ export default function DefaultLayout({ children }: Props) {
             <main className='pt-[80px] min-h-screen max-h-screen flex flex-col'>
                 <div className="flex flex-1 ml-[300px]" style={{ height: 'calc(100% - 80px)' }}>
                     <LeftNav />
-                    <div className="p-5">
+                    <div className="p-5 w-full">
                         {children}
                     </div>
                 </div>

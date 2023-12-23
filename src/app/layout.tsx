@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 import AudioPlayer from '@/components/AudioPlayer/AudioPlayer'
 import DefaultLayout from '@/components/layout/DefaultLayout'
+import 'react-loading-skeleton/dist/skeleton.css'
+import Providers from '@/Providers'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,10 +16,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className='bg-black'>
+    <html lang="en" className='bg-black select-none'>
       <body>
         <DefaultLayout>
-          {children}
+          <Providers>
+            {children}
+          </Providers>
         </DefaultLayout>
         <AudioPlayer />
       </body>

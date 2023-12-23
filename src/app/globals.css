@@ -1,19 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-
-.glass-bg-dark {
-  background: rgba(0, 0, 0, 0.46);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(14.9px);
-  -webkit-backdrop-filter: blur(14.9px);
-  border: 1px solid rgba(0, 0, 0, 0.59);
+html, body {
+  font-family: 'Lato', sans-serif !important;
 }
 
-/* For WebKit browsers (Chrome, Safari) */
-/* You can customize the styles as needed */
+.glass-bg-dark {
+  background: rgba(0, 0, 0, 0.73);
+    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+    backdrop-filter: blur(10.9px);
+    -webkit-backdrop-filter: blur(10.9px);
+}
+
 ::-webkit-scrollbar {
   width: 1px;
 }
@@ -26,20 +26,21 @@
   background-color: #5555553e;
 }
 
-/* For Firefox */
-/* You can customize the colors as needed */
-/* You may need to use more vendor prefixes for broader support */
-/* Note: These properties may change in future browser versions */
+
 body {
   scrollbar-width: thin;
   scrollbar-color: #888 #f0f0f0;
 }
 
-/* Optional: Handle hover and active states for Firefox */
 body:hover {
   scrollbar-color: #555 #f0f0f0;
 }
 
 body:active {
   scrollbar-color: #333 #f0f0f0;
+}
+
+.bottom-gradient {
+  background: rgb(107, 250, 167);
+  background: linear-gradient(180deg, rgba(107, 128, 250, 0) 0%, rgba(0, 0, 0, 0.9164040616246498) 100%);
 }
