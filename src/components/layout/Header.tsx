@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Link from 'next/link'
 import { HiMagnifyingGlass, HiMiniUserCircle } from 'react-icons/hi2'
 import { useRouter } from 'next/navigation';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { googleProvider } from '@/firebase';
 // import { useRouter } from 'next/router'
 
 type Props = {}
@@ -11,10 +13,36 @@ export default function Header({ }: Props) {
     const [keyword, setKeyword] = useState('')
     const router = useRouter();
 
+    const auth = getAuth();
+    const user = auth.currentUser;
+
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         router.push(`/search/?q=${keyword}`)
     };
+
+    const onAuth = async () => {
+        const auth = getAuth();
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential?.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                // IdP data available using getAdditionalUserInfo(result)
+                // ...
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+            });
+    }
 
     return (
         <>
@@ -30,8 +58,10 @@ export default function Header({ }: Props) {
                         onChange={e => setKeyword(e.target.value)}
                     />
                 </form>
-                <button className='text-gray-500'>
-                    <HiMiniUserCircle size={45} />
+                <button className='text-gray-500' onClick={user ? () => { } : onAuth}>
+                    {
+                        user ? <img className='h-9 w-9 rounded-full' src={user.photoURL as string} alt='user' /> : <HiMiniUserCircle size={45} />
+                    }
                 </button>
             </header>
         </>

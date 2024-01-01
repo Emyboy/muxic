@@ -1,9 +1,8 @@
 'use client'
 import React from 'react'
-import { HiChartPie, HiMiniHome, HiMiniMusicalNote } from 'react-icons/hi2';
+import { HiChartPie, HiMiniMusicalNote, HiHeart } from 'react-icons/hi2';
 import { FaGithub, FaGlobe, FaInstagramSquare, FaTwitter } from 'react-icons/fa'
-import Card from '../Card';
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import NavSection from './NavSection';
 import classNames from 'classnames';
 import Link from 'next/link';
@@ -12,7 +11,6 @@ type Props = {}
 
 export default function LeftNav({ }: Props) {
 
-    const router = useRouter();
     const path = usePathname()
 
     return (
@@ -23,6 +21,9 @@ export default function LeftNav({ }: Props) {
                 </Link>
                 <Link href={`/genre`}>
                     <EachNav title={`Genre`} Icon={HiMiniMusicalNote} isActive={path.includes('genre')} />
+                </Link>
+                <Link href={`/liked`}>
+                    <EachNav title={`Liked Songs`} Icon={HiHeart} isActive={path.includes('liked')} />
                 </Link>
             </NavSection>
 
