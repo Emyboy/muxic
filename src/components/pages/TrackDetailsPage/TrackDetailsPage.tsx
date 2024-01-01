@@ -11,7 +11,14 @@ type Props = {
 export default function TrackDetailsPage({ trackData, popular }: Props) {
     return (
         <div className="flex flex-col gap-28">
-            <TrackHero trackData={trackData} />
+            <TrackHero
+                bg_image={trackData.album.cover_small}
+                track_image={trackData.album.cover_medium}
+                title={trackData.title}
+                onPlay={() => { }}
+                artist_image={trackData.artist.picture_small}
+                artist_name={trackData.artist.name}
+            />
             <EachSection heading='Popular'>
                 {
                     popular.map(popular => {
@@ -21,7 +28,7 @@ export default function TrackDetailsPage({ trackData, popular }: Props) {
                             sub_title={popular.artist.name}
                             img_url={popular.album.cover_medium}
                             route={`/${popular.type}/${popular.id}`}
-                         />
+                        />
                     })
                 }
             </EachSection>

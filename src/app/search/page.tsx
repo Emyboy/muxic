@@ -1,7 +1,7 @@
 import SearchResultPage from '@/components/pages/SearchResultPage/SearchResultPage'
 import { MUSIC_API_URL } from '@/constants';
 import React from 'react'
-import { SectionLoading } from '../genre/loading';
+
 
 export default async function page({ searchParams }: any) {
     const { q } = searchParams;

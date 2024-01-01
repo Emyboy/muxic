@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link'
 import { HiMagnifyingGlass, HiMiniUserCircle } from 'react-icons/hi2'
 import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/router'
 
 type Props = {}
 
