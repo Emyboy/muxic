@@ -23,7 +23,7 @@ export default function HomePage({ chartData }: Props) {
                                             title={item.title || item.name}
                                             sub_title={item?.artist?.name || item?.user?.name || item?.description || ''}
                                             img_url={item?.album?.cover_xl || item.cover_medium || item.picture_big || ''}
-                                            route={`/${item.type}/${item.id}`}
+                                            // route={`/${item.type}/${item.id}`}
                                         />
                                     })
                                 }

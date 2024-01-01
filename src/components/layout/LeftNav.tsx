@@ -32,7 +32,7 @@ export default function LeftNav({ }: Props) {
                 <EachNav title={`Twitter`} Icon={FaTwitter} />
                 <EachNav title={`Instagram`} Icon={FaInstagramSquare} />
             </NavSection>
-            <NavSection heading='Favorite Tracks'>
+            <NavSection heading='My Playlist'>
                 {
                     new Array(3).fill(null).map((val, i) => {
                         return <EachNavTracks key={`track-${i}`} />

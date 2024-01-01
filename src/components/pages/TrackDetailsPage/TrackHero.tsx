@@ -9,9 +9,10 @@ type Props = {
     onPlay?: () => void;
     artist_image: string;
     artist_name: string;
+    description?: string;
 }
 
-export default function TrackHero({ artist_image, artist_name, bg_image, onPlay, title, track_image }: Props) {
+export default function TrackHero({ artist_image, artist_name, bg_image, onPlay, title, track_image, description }: Props) {
     return (
         <div className='relative h-[500px]'>
             <div className='bg-fg h-[500px] rounded-xl flex flex-col justify-end p-10 bg-center bg-no-repeat bg-cover' style={{ backgroundImage: `url(${bg_image})` }}>
@@ -31,9 +32,10 @@ export default function TrackHero({ artist_image, artist_name, bg_image, onPlay,
                     </div>}
                 </div>
                 <div className="flex flex-col h-full justify-end gap-7">
+                    {description && <h6 className='text-white text-lg'>{description}</h6>}
                     <h1 className='text-white text-7xl font-bold'>{title}</h1>
                     {artist_name && <div className="flex gap-4 items-center">
-                        <Image src={artist_image} alt='artist' width={40} height={40} className='rounded-full' />
+                        {artist_image && <Image src={artist_image} alt='artist' width={40} height={40} className='rounded-full' />}
                         <h3 className='text-white'>{artist_name}</h3>
                     </div>}
                 </div>
