@@ -6,7 +6,7 @@ export default function AlbumDetailsLoading() {
   return (
     <div className='flex flex-col gap-16'>
       <div className='opacity-5 animate-pulse group flex flex-col gap-4'>
-        <div className="h-[450px] bg-gray-900 mb-2 rounded-lg flex flex-col justify-end p-5">
+        <div className="h-[500px] bg-gray-900 mb-2 rounded-lg flex flex-col justify-end p-10">
           <div className="h-[300px] w-[300px] bg-gray-600 mb-2 rounded-lg"></div>
         </div>
       </div>
