@@ -2,6 +2,7 @@ import React from 'react'
 import TrackHero from './TrackHero'
 import EachSection from '@/components/EachSection'
 import EachSongCard from '@/components/EachSong/EachSongCard'
+import TrackDataTable from '@/components/TrackDataTable/TrackDataTable'
 
 type Props = {
     trackData: any
@@ -19,7 +20,19 @@ export default function TrackDetailsPage({ trackData, popular }: Props) {
                 artist_image={trackData.artist.picture_small}
                 artist_name={trackData.artist.name}
             />
-            <EachSection heading='Popular'>
+
+            <TrackDataTable
+                dataset={popular.map(track => ({
+                    id: track.id,
+                    album: track.album,
+                    artist: track.artist,
+                    contributors: track.contributors.map((artist: any) => artist.name).join(", "),
+                    duration: track.duration,
+                    title: track.title
+                }))}
+            />
+
+            {/* <EachSection heading='Similar Tracks'>
                 {
                     popular.map(popular => {
                         return <EachSongCard
@@ -31,7 +44,7 @@ export default function TrackDetailsPage({ trackData, popular }: Props) {
                         />
                     })
                 }
-            </EachSection>
+            </EachSection> */}
         </div>
     )
 }
