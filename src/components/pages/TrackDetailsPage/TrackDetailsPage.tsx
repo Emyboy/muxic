@@ -1,7 +1,5 @@
 import React from 'react'
 import TrackHero from './TrackHero'
-import EachSection from '@/components/EachSection'
-import EachSongCard from '@/components/EachSong/EachSongCard'
 import TrackDataTable from '@/components/TrackDataTable/TrackDataTable'
 
 type Props = {
@@ -28,7 +26,8 @@ export default function TrackDetailsPage({ trackData, popular }: Props) {
                     artist: track.artist,
                     contributors: track.contributors.map((artist: any) => artist.name).join(", "),
                     duration: track.duration,
-                    title: track.title
+                    title: track.title,
+                    preview: track.preview
                 }))}
             />
 

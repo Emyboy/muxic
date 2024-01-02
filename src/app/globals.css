@@ -44,3 +44,7 @@ body:active {
   background: rgb(107, 250, 167);
   background: linear-gradient(180deg, rgba(107, 128, 250, 0) 0%, rgba(0, 0, 0, 0.9164040616246498) 100%);
 }
+
+.smooth-transition {
+  transition: 0.3s ease;
+}

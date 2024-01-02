@@ -4,7 +4,7 @@ import Card from '../Card'
 export default function TrackTableLoading() {
     return (
         <Card>
-            <div className='opacity-20 animate-pulse group flex flex-col gap-4'>
+            <div className='opacity-20 animate-pulse- group flex flex-col gap-4'>
 
                 <table className="text-fg-light table-auto w-full">
                     <thead>

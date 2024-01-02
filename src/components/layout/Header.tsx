@@ -5,7 +5,7 @@ import { HiMagnifyingGlass, HiMiniUserCircle } from 'react-icons/hi2'
 import { useRouter } from 'next/navigation';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import { googleProvider } from '@/firebase';
-// import { useRouter } from 'next/router'
+
 
 type Props = {}
 
@@ -25,31 +25,25 @@ export default function Header({ }: Props) {
         const auth = getAuth();
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential?.accessToken;
-                // The signed-in user info.
                 const user = result.user;
-                // IdP data available using getAdditionalUserInfo(result)
-                // ...
             }).catch((error) => {
-                // Handle Errors here.
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                // The email of the user's account used.
                 const email = error.customData.email;
-                // The AuthCredential type that was used.
                 const credential = GoogleAuthProvider.credentialFromError(error);
-                // ...
             });
     }
 
     return (
         <>
             <header className='bg-fg h-[80px] fixed left-0 right-0 top-0 flex items-center px-[20px] justify-between gap-[50px] ml-[300px] z-50 shadow-lg'>
+
                 <Link href={`/`} className='text-theme text-3xl font-bold'>
                     Muxic
                 </Link>
+
                 <form className='bg-black flex p-3 rounded-full w-[40%] items-center gap-4' onSubmit={onSubmit}>
                     <HiMagnifyingGlass className='text-gray-500' size={25} />
                     <input
