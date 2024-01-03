@@ -1,5 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import playerSlice from './features/player/player.slice'
+import playerSlice, { PlayerState } from './features/player/player.slice'
+
+export interface AppStore {
+    player: PlayerState
+}
 
 export const store = configureStore({
     reducer: {

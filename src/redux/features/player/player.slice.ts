@@ -5,12 +5,14 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface PlayerState {
     queueIndex: number;
-    queue: TrackDataTable[]
+    queue: TrackDataTable[],
+    isPlaying: boolean;
 }
 
 const initialState: PlayerState = {
     queueIndex: 0,
-    queue: []
+    queue: [],
+    isPlaying: false
 }
 
 export const playerSlice = createSlice({

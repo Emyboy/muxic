@@ -6,6 +6,16 @@
 - album details page
 - artist details page
 
+
+
+### Features 
+- playlist CRUD
+- favorite artist tracking
+- liked songs tracking
+- keyword search
+- audio populate queue
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

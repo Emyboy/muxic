@@ -14,7 +14,7 @@ export default function AudioPlayerQueue({ }: Props) {
     return (
         <>
             <QueuePopup show={showQueue} onClose={() => setShowQueue(false)} />
-            <div className='h-full flex items-center gap-5 p-3 min-w-[200px]'>
+            <div className='h-full flex items-center gap-5 p-3 lg:min-w-[200px]'>
                 <button className='hover:text-white' onClick={() => setShowQueue(true)}>
                     <HiOutlineQueueList size={20} />
                 </button>
@@ -22,7 +22,7 @@ export default function AudioPlayerQueue({ }: Props) {
                     <button className='hover:text-white'>
                         <HiOutlineSpeakerWave size={20} />
                     </button>
-                    <div className='bg-fg-highlight min-h-[6px] w-full rounded-full overflow-hidden'>
+                    <div className='bg-fg-highlight min-h-[6px] w-full rounded-full overflow-hidden lg:visible block'>
                         <div className='bg-theme h-[6px] w-[70%]' />
                     </div>
                 </div>
@@ -68,14 +68,24 @@ const QueuePopup = ({ show, onClose }: { show: boolean, onClose: () => void; }) 
 }
 
 const EachQueueTrack = ({ track }: { track: TrackDataTable }) => {
-    const { removeFromQueue } = useAudioPlayer()
+    const { removeFromQueue, playerState } = useAudioPlayer();
+
+    const { queue, queueIndex, isPlaying } = playerState
+    const activeTrack: TrackDataTable | null = queue[queueIndex];
+    const isActive = activeTrack?.id === track?.id;
+
     return <div className='flex gap-3 justify-between p-2 m-1 hover:bg-fg rounded-lg items-center group max-w-full'>
         <div className="flex gap-3 items-center group-hover:max-w-[66%] max-w-[70%]">
             <div className='min-h-[50px] min-w-[50px] rounded-md relative overflow-hidden'>
+                {isActive && isPlaying && <div className='z-30 absolute right-[20%] top-[20%] bg-black rounded-full h-[30px] w-[30px] flex items-center justify-center'>
+                    <img src='/assets/img/wave.gif' width={15} />
+                </div>}
                 <Image fill alt='track' src={track.album.cover_medium} className='absolute' />
             </div>
             <div className="flex flex-col max-w-full">
-                <h5 className='font-semibold truncate'>{track.title} kkkkk</h5>
+                <h5 className={classNames('font-semibold truncate', {
+                    "text-theme": isActive
+                })}>{track.title}</h5>
                 <small>{track.artist.name}</small>
             </div>
         </div>

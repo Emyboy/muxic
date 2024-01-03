@@ -26,7 +26,8 @@ export default function ArtistDetailsPage({ data, tracks }: Props) {
                         artist: track.artist,
                         contributors: track.contributors.map((artist:any) => artist.name).join(", "),
                         duration: track.duration,
-                        title: track.title
+                        title: track.title,
+                        preview: track.preview
                     }))}
                 />
             </div>
