@@ -14,7 +14,7 @@ export default function HomePage({ chartData }: Props) {
 
                 {
                     Object.keys(chartData).map((val, i) => {
-                        return <EachSection heading={`Top ${chartData[val].total} ${val} `}>
+                        return <EachSection heading={`Top ${chartData[val].total} ${val} `} key={Math.random()}>
                             <>
                                 {
                                     chartData[val].data.map((item: any) => {

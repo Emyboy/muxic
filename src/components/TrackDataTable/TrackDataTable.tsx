@@ -83,7 +83,7 @@ export default function TrackDataTable({ dataset }: Props) {
                                                 <HiEllipsisHorizontal className='hover:text-white' size={25} />
                                             </DropdownMenuTrigger>
                                             <DropdownMenuContent>
-                                                <TrackOptions track={val as TrackData} />
+                                                <TrackOptions track={val} />
                                             </DropdownMenuContent>
                                         </DropdownMenu>
                                     </td>

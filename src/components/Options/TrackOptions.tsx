@@ -2,10 +2,10 @@
 import React from 'react'
 import { DropdownMenuItem, DropdownMenuSeparator } from '../ui/dropdown-menu'
 import { HiOutlinePlus, HiOutlineQueueList, HiOutlineShare } from 'react-icons/hi2'
-import { TrackData } from '@/types/track.types'
 import useAudioPlayer from '@/hooks/userAudioPlayer'
+import { TrackDataTable } from '../TrackDataTable/TrackDataTable'
 
-export default function TrackOptions({ track }: { track: TrackData }) {
+export default function TrackOptions({ track }: { track: TrackDataTable }) {
     const { addToQueue } = useAudioPlayer();
 
     return (

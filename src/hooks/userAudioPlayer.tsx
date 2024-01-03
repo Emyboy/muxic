@@ -8,7 +8,7 @@ import { TrackDataTable } from '@/components/TrackDataTable/TrackDataTable';
 interface UseAudioPlayer {
     playerState: PlayerState;
     setPlayerState: (payload: Partial<PlayerState>) => void;
-    addToQueue: (track: TrackData) => void;
+    addToQueue: (track: TrackDataTable) => void;
     removeFromQueue: (trackId: number) => void;
     nextTrack: () => void;
     previousTrack: () => void;
@@ -19,7 +19,7 @@ const useAudioPlayer = (): UseAudioPlayer => {
     const dispatch = useDispatch();
     const playerState = useSelector((state: AppStore) => state.player);
 
-    const addToQueue = (track: TrackData): void => {
+    const addToQueue = (track: TrackDataTable) => {
         const isTrackInQueue = playerState.queue.some((queuedTrack: TrackDataTable) => queuedTrack.id === track.id);
 
         if (!isTrackInQueue) {
